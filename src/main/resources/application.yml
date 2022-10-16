@@ -14,3 +14,8 @@ spring:
         enabled: true
         settings:
           web-allow-others: false
+
+server:
+  error:
+    include-message: ALWAYS
+    include-stacktrace: NEVER
