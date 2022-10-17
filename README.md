@@ -40,3 +40,27 @@ Click `Run`, you should see two rows, for ids `1` and `2`
 ### Suggestions
 
 Feel free to remove or repurpose the existing Sample Repository, Entity, Controller, and Service. 
+
+
+# Devices and orders(service)
+
+## H2 Console
+
+In order to see and interact with your db, access the h2 console in your browser.
+After running the application, go to:
+
+http://localhost:8080/h2-console
+
+Enter the information for the url, username, and password in the application.yml:
+
+```yml
+url: jdbc:h2:mem:localdb2
+username: sa 
+password: password
+```
+
+* http://localhost:8080/devices
+* http://localhost:8080/orders
+
+for more details about the other operations you could see the document <b>NinjaOne.postman_collection.json</b> <br>
+in the root of the project.

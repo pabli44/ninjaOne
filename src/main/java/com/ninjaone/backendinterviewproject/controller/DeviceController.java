@@ -9,8 +9,11 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
+/**
+ * Device Controller
+ */
 @RestController
-@RequestMapping("/device")
+@RequestMapping("/devices")
 public class DeviceController {
 
     private final DeviceService deviceService;
@@ -20,6 +23,11 @@ public class DeviceController {
     }
 
 
+    /**
+     * Description: save device
+     * @param device
+     * @return
+     */
     @PostMapping
     private Device postDeviceEntity(@RequestBody Device device){
         if(deviceService.saveDeviceEntity(device)!=null){
@@ -29,22 +37,41 @@ public class DeviceController {
         }
     }
 
+    /**
+     * Description: get device by id
+     * @param id
+     * @return
+     * @throws Exception
+     */
     @GetMapping("/{id}")
     private Device getDeviceEntity(@PathVariable Long id) throws Exception {
         return deviceService.getDeviceEntity(id).orElseThrow();
     }
 
+    /**
+     * Description: delete device by id
+     * @param id
+     */
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     private void deleteDeviceEntity(@PathVariable Long id){
         deviceService.deleteDeviceEntity(id);
     }
 
+    /**
+     * Description: get all devices
+     * @return
+     */
     @GetMapping
     private List<Device> getDeviceEntities(){
         return deviceService.getDeviceEntities();
     }
 
+    /**
+     * Description: Update device
+     * @param device
+     * @return
+     */
     @PutMapping
     private Device updateDevice(@RequestBody Device device){
         return deviceService.updateDevice(device);
